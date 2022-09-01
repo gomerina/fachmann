@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--@import "header.html"-->
+    <main>
+        <div class="wrapper">
+            <div class="container">
+                <nav class="breadcrumbs">
+                    <a href="#" class="breadcrumb__link">Главная</a>
+                    <span class="breadcrumb__link current">Где купить</span>
+                </nav>
+                <div class="heading buy-info__heading">
+                    <h2>Где купить</h2>
+                </div>
+                <div class="buy-info__text">
+                    <p class="buy-info__descr">На этой странице представлены адреса и контакты наших официальных
+                        дилеров.</p>
+                    <p class="buy-info__descr">Если вы не смогли связаться с ними по указанным контактам, напишите нам
+                        на <a href="mailto:sales@fachmann-rus.ru">sales@fachmann-rus.ru</a></p>
+                </div>
+                <div class="buy-info__inner">
+                    <div class="buy-info__left">
+                        <form action="#">
+                            <div class="buy-info__input-box">
+                                <input type="text" class="buy-info__input" placeholder="Страна, город">
+                                <div class="buy-info__search"></div>
+                            </div>
+                            <div class="buy-info__buttons">
+                                <button class="button-yellow">Применить</button>
+                                <button class="button-transparent">Сбросить</button>
+                            </div>
+                        </form>
+                        <div class="buy-info__coords">
+                            <div class="info__coords-item active" data-lat='59.877816' data-ling='30.358670'>
+                                <div class="coords-item__inner">
+                                    <div class="storages-address__head--big">Remonza.ru</div>
+                                    <ul class="storages-address__list">
+                                        <li class="address__list-item address__list-item--location">
+                                            Россия, Санкт-Петербург, ул. Фучика д.2 ТЦ Рио
+                                        </li>
+                                        <li class="address__list-item address__list-item--web">
+                                            www.vestacer.ru
+                                        </li>
+                                        <li class="address__list-item address__list-item--tel">
+                                            +7 812 207-58-60
+                                        </li>
+                                        <li class="address__list-item address__list-item--mail">
+                                            info@vestacer.ru
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="info__coords-item" data-lat='59.929210' data-ling='30.356970'>
+                                <div class="coords-item__inner">
+                                    <div class="storages-address__head--big">Remonza.ru</div>
+                                    <ul class="storages-address__list">
+                                        <li class="address__list-item address__list-item--location">
+                                            Россия, Санкт-Петербург, ул. Фучика д.2 ТЦ Рио
+                                        </li>
+                                        <li class="address__list-item address__list-item--web">
+                                            www.vestacer.ru
+                                        </li>
+                                        <li class="address__list-item address__list-item--tel">
+                                            +7 812 207-58-60
+                                        </li>
+                                        <li class="address__list-item address__list-item--mail">
+                                            info@vestacer.ru
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="info__coords-item" data-lat='59.877816' data-ling='30.358670'>
+                                <div class="coords-item__inner">
+                                    <div class="storages-address__head--big">Remonza.ru</div>
+                                    <ul class="storages-address__list">
+                                        <li class="address__list-item address__list-item--location">
+                                            Россия, Санкт-Петербург, ул. Фучика д.2 ТЦ Рио
+                                        </li>
+                                        <li class="address__list-item address__list-item--web">
+                                            www.vestacer.ru
+                                        </li>
+                                        <li class="address__list-item address__list-item--tel">
+                                            +7 812 207-58-60
+                                        </li>
+                                        <li class="address__list-item address__list-item--mail">
+                                            info@vestacer.ru
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="info__coords-item" data-lat='59.877816' data-ling='30.358670'>
+                                <div class="coords-item__inner">
+                                    <div class="storages-address__head--big">Remonza.ru</div>
+                                    <ul class="storages-address__list">
+                                        <li class="address__list-item address__list-item--location">
+                                            Россия, Санкт-Петербург, ул. Фучика д.2 ТЦ Рио
+                                        </li>
+                                        <li class="address__list-item address__list-item--web">
+                                            www.vestacer.ru
+                                        </li>
+                                        <li class="address__list-item address__list-item--tel">
+                                            +7 812 207-58-60
+                                        </li>
+                                        <li class="address__list-item address__list-item--mail">
+                                            info@vestacer.ru
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="buy-info__map" id="ymap">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--@import "footer.html"-->
+    <!--Нужен для появления всплывающих подсказок в карточке товара-->
+    <div class="tooltip"></div>
+    <script src="js/swiper.js"></script>
+    <script src="js/jQuery.js"></script>
+    <script src="js/jQuery-UI.js"></script>
+    <script src="//api-maps.yandex.ru/2.1/?&lang=ru-RU&onload=getYaMap"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function getYaMap() {
+            var myMap = new ymaps.Map('ymap', {
+                center: [59.877816, 30.358670],
+                zoom: 14
+            }, {
+                searchControlProvider: 'yandex#search'
+            }),
+                MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                    '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+                ),
+                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+
+                }, {
+                    iconLayout: 'default#image',
+                    iconImageHref: 'img/svg/marker.svg',
+                    iconImageSize: [25, 33],
+                    iconImageOffset: [-5, -38]
+                })
+            myMap.geoObjects.add(myPlacemark)
+            myMap.behaviors.disable('scrollZoom')
+            $('.info__coords-item').click(function () {
+                myMap.setCenter([$(this).attr('data-lat'), $(this).attr('data-ling')])
+                myPlacemark.geometry.setCoordinates([$(this).attr('data-lat'), $(this).attr('data-ling')])
+                $(this).addClass('active').siblings().removeClass('active');
+            })
+        }
+    </script>
+</body>
+
+</html>

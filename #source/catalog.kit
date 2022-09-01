@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/jQuery-UI.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--@import "header.html"-->
+    <main>
+        <div class="wrapper">
+            <div class="container">
+                <nav class="breadcrumbs">
+                    <a href="#" class="breadcrumb__link">Главная</a>
+                    <a href="#" class="breadcrumb__link">Каталог</a>
+                    <a href="#" class="breadcrumb__link current">Кровельные воронки</a>
+                </nav>
+                <div class="heading catalog-heading">
+                    <h1>Кровельные воронки</h1>
+                </div>
+                <div class="catalog__inner">
+                    <aside class="catalog-filter">
+                        <div class="catalog-filter__head">Фильтр по параметрам</div>
+                        <div class="catalog-filter__inner">
+                            <div class="filter__checkbox-group">
+                                <label class="control control-checkbox">
+                                    Новинки
+                                    <input type="checkbox" checked="checked" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                                <label class="control control-checkbox">
+                                    Скоро в продаже
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                            </div>
+                            <div class="filter-accordion">
+                                <div class="filter-accordion-name">
+                                    <span>Монтажный диаметр</span>
+                                    <span class="filter-chevron"></span>
+                                </div>
+                                <div class="filter-accordion__body">
+                                    <div class="range-slider__box">
+                                        <div class="range-slider__inputs">
+                                            <input type="text" disabled class="min diameter-min" value="1000">
+                                            <input type="text" disabled class="max diameter-max" value="100000">
+                                        </div>
+                                        <div id="range-slider__diameter"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-accordion">
+                                <div class="filter-accordion-name">
+                                    <span>Высота выпуска</span>
+                                    <span class="filter-chevron"></span>
+                                </div>
+                                <div class="filter-accordion__body">
+                                    <div class="range-slider__box">
+                                        <div class="range-slider__inputs">
+                                            <input type="text" disabled class="min height-min" value="1000">
+                                            <input type="text" disabled class="max height-max" value="100000">
+                                        </div>
+                                        <div id="range-slider__height"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-accordion">
+                                <div class="filter-accordion-name">
+                                    <span>Пропускная способность</span>
+                                    <span class="filter-chevron"></span>
+                                </div>
+                                <div class="filter-accordion__body">
+                                    <div class="range-slider__box">
+                                        <div class="range-slider__inputs">
+                                            <input type="text" disabled class="min troughput-min" value="1000">
+                                            <input type="text" disabled class="max troughput-max" value="100000">
+                                        </div>
+                                        <div id="range-slider__throughput"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-accordion">
+                                <div class="filter-accordion-name">
+                                    <span>Обогрев</span>
+                                    <span class="filter-chevron"></span>
+                                </div>
+                                <div class="filter-accordion__body">
+                                    <div class="filter__checkbox-group">
+                                        <label class="control control-checkbox">
+                                            Да
+                                            <input type="checkbox" checked="checked" />
+                                            <span class="control_indicator"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-name">Цвет</div>
+                            <div class="filter__checkbox-group">
+                                <label class="control control-checkbox">
+                                    Красный
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                                <label class="control control-checkbox">
+                                    Черный
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                                <label class="control control-checkbox">
+                                    Синий
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                                <label class="control control-checkbox">
+                                    Зеленый
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="filter-accept__button">Применить</button>
+                                <button class="filter-clear__button">Сбросить</button>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="catalog-box">
+                        <div class="catalog-box__head">
+                            <div class="catalog__head-left">
+                                <div class="mobile-filter">
+                                    <img src="img/svg/filter.svg" alt="">
+                                    <span>Фильтр</span>
+                                </div>
+                                <div class="products-value">
+                                    <span class="products-value__text">Товаров:</span>
+                                    <span class="products-value__num">25</span>
+                                </div>
+                                <div class="custom-select">
+                                    <span class="custom-select__value">По алфавиту</span>
+                                    <input type="hidden" class="custom-select__input">
+                                    <ul class="select-menu">
+                                        <li class="select-menu__item hidden">По алфавиту</li>
+                                        <li class="select-menu__item">Sort 2</li>
+                                        <li class="select-menu__item">Sort 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="catalog__head-right">
+                                <div class="structure__item grid active">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.4 1H2.6C2.03995 1 1.75992 1 1.54601 1.10899C1.35785 1.20487 1.20487 1.35785 1.10899 1.54601C1 1.75992 1 2.03995 1 2.6V6.4C1 6.96005 1 7.24008 1.10899 7.45399C1.20487 7.64215 1.35785 7.79513 1.54601 7.89101C1.75992 8 2.03995 8 2.6 8H6.4C6.96005 8 7.24008 8 7.45399 7.89101C7.64215 7.79513 7.79513 7.64215 7.89101 7.45399C8 7.24008 8 6.96005 8 6.4V2.6C8 2.03995 8 1.75992 7.89101 1.54601C7.79513 1.35785 7.64215 1.20487 7.45399 1.10899C7.24008 1 6.96005 1 6.4 1Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M17.4 1H13.6C13.0399 1 12.7599 1 12.546 1.10899C12.3578 1.20487 12.2049 1.35785 12.109 1.54601C12 1.75992 12 2.03995 12 2.6V6.4C12 6.96005 12 7.24008 12.109 7.45399C12.2049 7.64215 12.3578 7.79513 12.546 7.89101C12.7599 8 13.0399 8 13.6 8H17.4C17.9601 8 18.2401 8 18.454 7.89101C18.6422 7.79513 18.7951 7.64215 18.891 7.45399C19 7.24008 19 6.96005 19 6.4V2.6C19 2.03995 19 1.75992 18.891 1.54601C18.7951 1.35785 18.6422 1.20487 18.454 1.10899C18.2401 1 17.9601 1 17.4 1Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M17.4 12H13.6C13.0399 12 12.7599 12 12.546 12.109C12.3578 12.2049 12.2049 12.3578 12.109 12.546C12 12.7599 12 13.0399 12 13.6V17.4C12 17.9601 12 18.2401 12.109 18.454C12.2049 18.6422 12.3578 18.7951 12.546 18.891C12.7599 19 13.0399 19 13.6 19H17.4C17.9601 19 18.2401 19 18.454 18.891C18.6422 18.7951 18.7951 18.6422 18.891 18.454C19 18.2401 19 17.9601 19 17.4V13.6C19 13.0399 19 12.7599 18.891 12.546C18.7951 12.3578 18.6422 12.2049 18.454 12.109C18.2401 12 17.9601 12 17.4 12Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M6.4 12H2.6C2.03995 12 1.75992 12 1.54601 12.109C1.35785 12.2049 1.20487 12.3578 1.10899 12.546C1 12.7599 1 13.0399 1 13.6V17.4C1 17.9601 1 18.2401 1.10899 18.454C1.20487 18.6422 1.35785 18.7951 1.54601 18.891C1.75992 19 2.03995 19 2.6 19H6.4C6.96005 19 7.24008 19 7.45399 18.891C7.64215 18.7951 7.79513 18.6422 7.89101 18.454C8 18.2401 8 17.9601 8 17.4V13.6C8 13.0399 8 12.7599 7.89101 12.546C7.79513 12.3578 7.64215 12.2049 7.45399 12.109C7.24008 12 6.96005 12 6.4 12Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="structure__item block">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15.8 8C16.9201 8 17.4802 8 17.908 7.78201C18.2843 7.59027 18.5903 7.28431 18.782 6.90798C19 6.48016 19 5.92011 19 4.8V4.2C19 3.0799 19 2.51984 18.782 2.09202C18.5903 1.7157 18.2843 1.40973 17.908 1.21799C17.4802 1 16.9201 1 15.8 1L4.2 1C3.0799 1 2.51984 1 2.09202 1.21799C1.71569 1.40973 1.40973 1.71569 1.21799 2.09202C1 2.51984 1 3.07989 1 4.2L1 4.8C1 5.9201 1 6.48016 1.21799 6.90798C1.40973 7.28431 1.71569 7.59027 2.09202 7.78201C2.51984 8 3.07989 8 4.2 8L15.8 8Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M15.8 19C16.9201 19 17.4802 19 17.908 18.782C18.2843 18.5903 18.5903 18.2843 18.782 17.908C19 17.4802 19 16.9201 19 15.8V15.2C19 14.0799 19 13.5198 18.782 13.092C18.5903 12.7157 18.2843 12.4097 17.908 12.218C17.4802 12 16.9201 12 15.8 12L4.2 12C3.0799 12 2.51984 12 2.09202 12.218C1.71569 12.4097 1.40973 12.7157 1.21799 13.092C1 13.5198 1 14.0799 1 15.2L1 15.8C1 16.9201 1 17.4802 1.21799 17.908C1.40973 18.2843 1.71569 18.5903 2.09202 18.782C2.51984 19 3.07989 19 4.2 19H15.8Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catalog-box__inner grid">
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-green">
+                                        <span>Новинки</span>
+                                    </div>
+                                    <img src="img/card-1.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-green">
+                                        <span>Новинки</span>
+                                    </div>
+                                    <img src="img/card-2.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-yellow">
+                                        <span>Скоро в продаже</span>
+                                    </div>
+                                    <img src="img/card-3.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-green">
+                                        <span>Новинки</span>
+                                    </div>
+                                    <img src="img/card-1.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-green">
+                                        <span>Новинки</span>
+                                    </div>
+                                    <img src="img/card-2.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-yellow">
+                                        <span>Скоро в продаже</span>
+                                    </div>
+                                    <img src="img/card-3.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-green">
+                                        <span>Новинки</span>
+                                    </div>
+                                    <img src="img/card-1.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-green">
+                                        <span>Новинки</span>
+                                    </div>
+                                    <img src="img/card-2.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-yellow">
+                                        <span>Скоро в продаже</span>
+                                    </div>
+                                    <img src="img/card-3.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__name">
+                                    <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                </div>
+                                <div class="product-card__bottom">
+                                    <p class="articule">Артикул: 01.171</p>
+                                    <div class="product-card__price">
+                                        <span class="card__price">2 700 ₽</span>
+                                        <a href="#" class="button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="product-card__params">
+                                    <div class="card__params-head">Характеристики</div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Монтажный диаметр</span>
+                                        <span class="card__params-value">110</span>
+                                    </div>
+                                    <div class="card__params-item">
+                                        <span class="card__params-name">Высота выпуска</span>
+                                        <span class="card__params-value">450</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button button-transparent button-more">
+                                Показать еще
+                                <span class="more-arrow"><img src="img/svg/more-arrow.svg" alt=""></span>
+                            </button>
+                            <div class="pagination">
+                                <a href="#" class="pagination-link">
+                                    <img src="img/svg/pagination-left.svg" alt="">
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    1
+                                </a>
+                                <a href="#" class="pagination-link current">
+                                    2
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    3
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    4
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    5
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    6
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    7
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    ...
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    <img src="img/svg/pagination-right.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seo-block">
+                <div class="container">
+                    <p class="seo-block__descr">Кровельные воронки предназначены для отвода дождевой и талой воды с
+                        плоских
+                        кровель во внутренний водосток ливневой канализации.</p>
+                    <p class="seo-block__descr">В зависимости от области применения (типа кровель) воронки FACHMANN
+                        имеют
+                        различную конструкцию и применяются как для эксплуатируемой кровли, так и для неэксплуатируемой
+                        кровли.
+                    </p>
+                    <p class="seo-block__descr">Устанавливаются на инверсионные кровли, которые могут включать в себя
+                        гидроизоляцию, пароизоляцию, теплоизоляцию, быть «пирогами» любой толщины и наполнения.</p>
+                </div>
+            </div>
+            <div class="documents">
+                <div class="container">
+                    <div class="heading documents-heading">
+                        Список нормативных документов
+                    </div>
+                    <div class="documents__inner">
+                        <ul class="documents-col">
+                            <li class="documents__item">
+                                <a href="#">СНиП II-26-76 «Кровли»</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 30.13330.2020 Внутренний водопровод и
+                                    канализация
+                                    зданий</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 32.13330.2018 Канализация. Наружные сети и
+                                    сооружения</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 73.13330.2016 «СНиП 3.05.01-85 Внутренние
+                                    санитарно-технические системы зданий»</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">ГОСТ Р 58956-2020 Воронки кровельные для
+                                    внутренних
+                                    водостоков. Общие технические условия</a>
+                            </li>
+                        </ul>
+                        <ul class="documents-col">
+                            <li class="documents__item">
+                                <a href="#">СНиП II-26-76 «Кровли»</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 30.13330.2020 Внутренний водопровод и
+                                    канализация
+                                    зданий</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 32.13330.2018 Канализация. Наружные сети и
+                                    сооружения</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 73.13330.2016 «СНиП 3.05.01-85 Внутренние
+                                    санитарно-технические системы зданий»</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--@import "footer.html"-->
+    <!--Нужен для появления всплывающих подсказок в карточке товара-->
+    <div class="tooltip"></div>
+    <div class="overlay"></div>
+    <script src="js/swiper.js"></script>
+    <script src="js/jQuery.js"></script>
+    <script src="js/jQuery-UI.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

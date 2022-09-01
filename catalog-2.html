@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/jQuery-UI.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Нет смысла адаптировать до < 767 т.к. ориентация будет вертикальной -->
+<header class="header">
+    <a href="index.html" class="header__logo-box">
+        <img src="img/svg/logo.svg" alt="">
+    </a>
+    <div class="header__rows">
+        <div class="header-top__row">
+            <div class="header-top__inner">
+                <div class="header__social">
+                    <a href="#">
+                        <svg width="25" height="18" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20.6704 0.450012H4.33039C3.22179 0.450012 2.15859 0.890404 1.37468 1.67431C0.590782 2.45821 0.150391 3.52141 0.150391 4.63001V13.37C0.150391 14.4786 0.590782 15.5418 1.37468 16.3257C2.15859 17.1096 3.22179 17.55 4.33039 17.55H20.6704C21.779 17.55 22.8422 17.1096 23.6261 16.3257C24.41 15.5418 24.8504 14.4786 24.8504 13.37V4.63001C24.8504 3.52141 24.41 2.45821 23.6261 1.67431C22.8422 0.890404 21.779 0.450012 20.6704 0.450012ZM17.3378 9.16721L9.92779 12.9672C9.89894 12.9822 9.86674 12.9895 9.83427 12.9884C9.80179 12.9874 9.77013 12.978 9.7423 12.9612C9.71448 12.9445 9.69141 12.9208 9.67532 12.8926C9.65923 12.8644 9.65065 12.8325 9.65039 12.8V5.20001C9.65065 5.16752 9.65923 5.13564 9.67532 5.10741C9.69141 5.07919 9.71448 5.05556 9.7423 5.03879C9.77013 5.02201 9.80179 5.01266 9.83427 5.01161C9.86674 5.01057 9.89894 5.01787 9.92779 5.03281L17.3378 8.83281C17.3689 8.84876 17.395 8.87298 17.4133 8.90282C17.4315 8.93265 17.4412 8.96694 17.4412 9.00191C17.4412 9.03688 17.4315 9.07117 17.4133 9.10101C17.395 9.13084 17.3689 9.15507 17.3378 9.17101V9.16721Z"
+                                fill="black" />
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_188_584)">
+                                <path
+                                    d="M12.7188 0H5.28125C2.625 0 0.5 2.125 0.5 4.78125V7.96875V12.2188C0.5 14.875 2.625 17 5.28125 17H12.7188C15.375 17 17.5 14.875 17.5 12.2188V7.96875V4.78125C17.5 2.125 15.375 0 12.7188 0Z"
+                                    fill="black" />
+                                <path
+                                    d="M9 12.75C11.3472 12.75 13.25 10.8472 13.25 8.5C13.25 6.15279 11.3472 4.25 9 4.25C6.65279 4.25 4.75 6.15279 4.75 8.5C4.75 10.8472 6.65279 12.75 9 12.75Z"
+                                    stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                                <path
+                                    d="M13.7812 4.25C14.3681 4.25 14.8438 3.7743 14.8438 3.1875C14.8438 2.6007 14.3681 2.125 13.7812 2.125C13.1944 2.125 12.7188 2.6007 12.7188 3.1875C12.7188 3.7743 13.1944 4.25 13.7812 4.25Z"
+                                    fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_188_584">
+                                    <rect width="17" height="17" fill="white" transform="translate(0.5)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                    </a>
+                </div>
+                <div class="header__contacts">
+                    <a href="tel:88005110721" class="header__contacts-link">
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19.1548 15.2355C18.4501 14.5255 16.7432 13.4893 15.9151 13.0718C14.8367 12.5285 14.7479 12.4841 13.9003 13.1139C13.3348 13.5341 12.959 13.9095 12.2973 13.7685C11.6356 13.6273 10.1977 12.8316 8.93861 11.5767C7.67956 10.3217 6.83767 8.84215 6.6961 8.18276C6.55453 7.5233 6.93619 7.15186 7.35248 6.58517C7.93918 5.78639 7.8948 5.65326 7.39331 4.5749C7.00232 3.73618 5.93588 2.04543 5.22314 1.34427C4.46069 0.5912 4.46069 0.72433 3.96941 0.928465C3.56945 1.09673 3.18573 1.30128 2.82308 1.53953C2.113 2.01126 1.71891 2.4031 1.44331 2.99199C1.16771 3.58086 1.04389 4.96143 2.46715 7.54682C3.89041 10.1322 4.88895 11.4542 6.95572 13.5151C9.02245 15.5759 10.6118 16.684 12.935 17.9869C15.8091 19.5965 16.9115 19.2827 17.5021 19.0075C18.0928 18.7325 18.4865 18.3419 18.9591 17.6319C19.198 17.2698 19.403 16.8866 19.5715 16.487C19.7761 15.9975 19.9093 15.9975 19.1548 15.2355Z"
+                                stroke="black" stroke-width="1.5" stroke-miterlimit="10" />
+                        </svg>
+                        <span>8 (800) 511-07-21</span>
+                    </a>
+                    <a href="mailto:ales@fachmann-rus.ru" class="header__contacts-link mail">
+                        <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_188_193)">
+                                <path
+                                    d="M18.875 0.727264H3.125C2.08947 0.727264 1.25 1.54129 1.25 2.54545V13.4545C1.25 14.4587 2.08947 15.2727 3.125 15.2727H18.875C19.9105 15.2727 20.75 14.4587 20.75 13.4545V2.54545C20.75 1.54129 19.9105 0.727264 18.875 0.727264Z"
+                                    stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M4.25 3.63635L11 8.72726L17.75 3.63635" stroke="black" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_188_193">
+                                    <rect width="21" height="16" fill="white" transform="translate(0.5)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span>ales@fachmann-rus.ru</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom__row">
+            <div class="header-bottom__inner">
+                <div class="header__nav">
+                    <div class="close-menu"></div>
+                    <div class="mobile-search"></div>
+                    <div class="header__catalog">
+                        <div class="header__catalog-burger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        Каталог
+                        <div class="header__catalog-menu">
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-1.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Кровельные воронки
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-2.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Трапы для балконов и террас
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-3.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Комплектующие элементы, противопожарная защита
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-4.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Кровельная вентиляция
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-5.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Трапы для внутренних помещений
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-6.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Металлоконструкции
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-7.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Парапетные воронки
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-8.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Большие трапы для стилобатов, дворов
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-9.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Воронка для балконов и террас
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-10.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Крепежные элементы
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="catalog-menu__item">
+                                <img src="img/menu-11.jpg" alt="">
+                                <div class="catalog-menu__text">
+                                    <div class="catalog-menu__name">
+                                        Ограждения для кровли
+                                    </div>
+                                    <div class="catalog-menu__value">
+                                        Товаров: 23
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-catalog__mobile"></div>
+                    <a href="#" class="header__nav-link first">О компании</a>
+                    <a href="#" class="header__nav-link">Проектировщикам</a>
+                    <a href="#" class="header__nav-link">Дилерам</a>
+                    <a href="#" class="header__nav-link">Полезное</a>
+                    <a href="#" class="header__nav-link">Контакты</a>
+                    <div class="mobile-contacts"></div>
+                    <div class="mobile-social">
+                        <p>Мы в соц. сетях:</p>
+                    </div>
+                </div>
+                <div class="mob-menu">
+                    <div class="mob-menu__burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    Меню
+                </div>
+                <div class="desctope-search">
+                    <div class="header__search">
+                        <img src="img/svg/search.svg" alt="" class="header__search-img">
+                        <form action="#">
+                            <input type="text" class="header-search__input">
+                            <button class="header-search__btn">
+                                <img src="img/svg/search.svg" alt="">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>    <main>
+        <div class="wrapper">
+            <div class="container">
+                <nav class="breadcrumbs">
+                    <a href="#" class="breadcrumb__link">Главная</a>
+                    <a href="#" class="breadcrumb__link">Каталог</a>
+                    <a href="#" class="breadcrumb__link current">Кровельные воронки</a>
+                </nav>
+                <div class="heading catalog-heading">
+                    <h1>Кровельные воронки</h1>
+                </div>
+                <div class="catalog__inner">
+                    <aside class="catalog-filter">
+                        <div class="catalog-filter__head">Фильтр по параметрам</div>
+                        <div class="catalog-filter__inner">
+                            <div class="filter__checkbox-group">
+                                <label class="control control-checkbox">
+                                    Новинки
+                                    <input type="checkbox" checked="checked" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                                <label class="control control-checkbox">
+                                    Скоро в продаже
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                            </div>
+                            <div class="filter-accordion">
+                                <div class="filter-accordion-name">
+                                    <span>Монтажный диаметр</span>
+                                    <span class="filter-chevron"></span>
+                                </div>
+                                <div class="filter-accordion__body">
+                                    <div class="range-slider__box">
+                                        <div class="range-slider__inputs">
+                                            <input type="text" disabled class="min diameter-min" value="1000">
+                                            <input type="text" disabled class="max diameter-max" value="100000">
+                                        </div>
+                                        <div id="range-slider__diameter"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-accordion">
+                                <div class="filter-accordion-name">
+                                    <span>Высота выпуска</span>
+                                    <span class="filter-chevron"></span>
+                                </div>
+                                <div class="filter-accordion__body">
+                                    <div class="range-slider__box">
+                                        <div class="range-slider__inputs">
+                                            <input type="text" disabled class="min height-min" value="1000">
+                                            <input type="text" disabled class="max height-max" value="100000">
+                                        </div>
+                                        <div id="range-slider__height"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-accordion">
+                                <div class="filter-accordion-name">
+                                    <span>Пропускная способность</span>
+                                    <span class="filter-chevron"></span>
+                                </div>
+                                <div class="filter-accordion__body">
+                                    <div class="range-slider__box">
+                                        <div class="range-slider__inputs">
+                                            <input type="text" disabled class="min troughput-min" value="1000">
+                                            <input type="text" disabled class="max troughput-max" value="100000">
+                                        </div>
+                                        <div id="range-slider__throughput"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-accordion">
+                                <div class="filter-accordion-name">
+                                    <span>Обогрев</span>
+                                    <span class="filter-chevron"></span>
+                                </div>
+                                <div class="filter-accordion__body">
+                                    <div class="filter__checkbox-group">
+                                        <label class="control control-checkbox">
+                                            Да
+                                            <input type="checkbox" checked="checked" />
+                                            <span class="control_indicator"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-name">Цвет</div>
+                            <div class="filter__checkbox-group">
+                                <label class="control control-checkbox">
+                                    Красный
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                                <label class="control control-checkbox">
+                                    Черный
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                                <label class="control control-checkbox">
+                                    Синий
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                                <label class="control control-checkbox">
+                                    Зеленый
+                                    <input type="checkbox" />
+                                    <span class="control_indicator"></span>
+                                </label>
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="filter-accept__button">Применить</button>
+                                <button class="filter-clear__button">Сбросить</button>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="catalog-box">
+                        <div class="catalog-box__head">
+                            <div class="catalog__head-left">
+                                <div class="mobile-filter">
+                                    <img src="img/svg/filter.svg" alt="">
+                                    <span>Фильтр</span>
+                                </div>
+                                <div class="products-value">
+                                    <span class="products-value__text">Товаров:</span>
+                                    <span class="products-value__num">25</span>
+                                </div>
+                                <div class="custom-select">
+                                    <span class="custom-select__value">По алфавиту</span>
+                                    <input type="hidden" class="custom-select__input">
+                                    <ul class="select-menu">
+                                        <li class="select-menu__item hidden">По алфавиту</li>
+                                        <li class="select-menu__item">Sort 2</li>
+                                        <li class="select-menu__item">Sort 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="catalog__head-right">
+                                <div class="structure__item grid">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.4 1H2.6C2.03995 1 1.75992 1 1.54601 1.10899C1.35785 1.20487 1.20487 1.35785 1.10899 1.54601C1 1.75992 1 2.03995 1 2.6V6.4C1 6.96005 1 7.24008 1.10899 7.45399C1.20487 7.64215 1.35785 7.79513 1.54601 7.89101C1.75992 8 2.03995 8 2.6 8H6.4C6.96005 8 7.24008 8 7.45399 7.89101C7.64215 7.79513 7.79513 7.64215 7.89101 7.45399C8 7.24008 8 6.96005 8 6.4V2.6C8 2.03995 8 1.75992 7.89101 1.54601C7.79513 1.35785 7.64215 1.20487 7.45399 1.10899C7.24008 1 6.96005 1 6.4 1Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M17.4 1H13.6C13.0399 1 12.7599 1 12.546 1.10899C12.3578 1.20487 12.2049 1.35785 12.109 1.54601C12 1.75992 12 2.03995 12 2.6V6.4C12 6.96005 12 7.24008 12.109 7.45399C12.2049 7.64215 12.3578 7.79513 12.546 7.89101C12.7599 8 13.0399 8 13.6 8H17.4C17.9601 8 18.2401 8 18.454 7.89101C18.6422 7.79513 18.7951 7.64215 18.891 7.45399C19 7.24008 19 6.96005 19 6.4V2.6C19 2.03995 19 1.75992 18.891 1.54601C18.7951 1.35785 18.6422 1.20487 18.454 1.10899C18.2401 1 17.9601 1 17.4 1Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M17.4 12H13.6C13.0399 12 12.7599 12 12.546 12.109C12.3578 12.2049 12.2049 12.3578 12.109 12.546C12 12.7599 12 13.0399 12 13.6V17.4C12 17.9601 12 18.2401 12.109 18.454C12.2049 18.6422 12.3578 18.7951 12.546 18.891C12.7599 19 13.0399 19 13.6 19H17.4C17.9601 19 18.2401 19 18.454 18.891C18.6422 18.7951 18.7951 18.6422 18.891 18.454C19 18.2401 19 17.9601 19 17.4V13.6C19 13.0399 19 12.7599 18.891 12.546C18.7951 12.3578 18.6422 12.2049 18.454 12.109C18.2401 12 17.9601 12 17.4 12Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M6.4 12H2.6C2.03995 12 1.75992 12 1.54601 12.109C1.35785 12.2049 1.20487 12.3578 1.10899 12.546C1 12.7599 1 13.0399 1 13.6V17.4C1 17.9601 1 18.2401 1.10899 18.454C1.20487 18.6422 1.35785 18.7951 1.54601 18.891C1.75992 19 2.03995 19 2.6 19H6.4C6.96005 19 7.24008 19 7.45399 18.891C7.64215 18.7951 7.79513 18.6422 7.89101 18.454C8 18.2401 8 17.9601 8 17.4V13.6C8 13.0399 8 12.7599 7.89101 12.546C7.79513 12.3578 7.64215 12.2049 7.45399 12.109C7.24008 12 6.96005 12 6.4 12Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="structure__item block active">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15.8 8C16.9201 8 17.4802 8 17.908 7.78201C18.2843 7.59027 18.5903 7.28431 18.782 6.90798C19 6.48016 19 5.92011 19 4.8V4.2C19 3.0799 19 2.51984 18.782 2.09202C18.5903 1.7157 18.2843 1.40973 17.908 1.21799C17.4802 1 16.9201 1 15.8 1L4.2 1C3.0799 1 2.51984 1 2.09202 1.21799C1.71569 1.40973 1.40973 1.71569 1.21799 2.09202C1 2.51984 1 3.07989 1 4.2L1 4.8C1 5.9201 1 6.48016 1.21799 6.90798C1.40973 7.28431 1.71569 7.59027 2.09202 7.78201C2.51984 8 3.07989 8 4.2 8L15.8 8Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M15.8 19C16.9201 19 17.4802 19 17.908 18.782C18.2843 18.5903 18.5903 18.2843 18.782 17.908C19 17.4802 19 16.9201 19 15.8V15.2C19 14.0799 19 13.5198 18.782 13.092C18.5903 12.7157 18.2843 12.4097 17.908 12.218C17.4802 12 16.9201 12 15.8 12L4.2 12C3.0799 12 2.51984 12 2.09202 12.218C1.71569 12.4097 1.40973 12.7157 1.21799 13.092C1 13.5198 1 14.0799 1 15.2L1 15.8C1 16.9201 1 17.4802 1.21799 17.908C1.40973 18.2843 1.71569 18.5903 2.09202 18.782C2.51984 19 3.07989 19 4.2 19H15.8Z"
+                                            stroke="#C2C2C2" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catalog-box__inner block">
+                            <div class="product-card horizontal">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-green">
+                                        <span>Новинки</span>
+                                    </div>
+                                    <img src="img/card-1.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-horizontal__box">
+                                    <div class="product-card__name">
+                                        <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                        <p class="articule">Артикул: 01.171</p>
+                                    </div>
+                                    <div class="product-card__bottom">
+                                        <div class="product-card__price">
+                                            <span class="card__price">2 700 ₽</span>
+                                            <a href="#" class="button">Подробнее</a>
+                                        </div>
+                                        <div class="product-card__params">
+                                            <div class="card__params-head">Характеристики</div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Монтажный диаметр</span>
+                                                <span class="card__params-value">110</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Высота выпуска</span>
+                                                <span class="card__params-value">450</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Монтажный диаметр</span>
+                                                <span class="card__params-value">110</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Высота выпуска</span>
+                                                <span class="card__params-value">450</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card horizontal">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-green">
+                                        <span>Новинки</span>
+                                    </div>
+                                    <img src="img/card-2.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-horizontal__box">
+                                    <div class="product-card__name">
+                                        <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                        <p class="articule">Артикул: 01.171</p>
+                                    </div>
+                                    <div class="product-card__bottom">
+                                        <div class="product-card__price">
+                                            <span class="card__price">2 700 ₽</span>
+                                            <a href="#" class="button">Подробнее</a>
+                                        </div>
+                                        <div class="product-card__params">
+                                            <div class="card__params-head">Характеристики</div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Монтажный диаметр</span>
+                                                <span class="card__params-value">110</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Высота выпуска</span>
+                                                <span class="card__params-value">450</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Монтажный диаметр</span>
+                                                <span class="card__params-value">110</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Высота выпуска</span>
+                                                <span class="card__params-value">450</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card horizontal">
+                                <div class="product-card__head">
+                                    <div class="product-card__flag card__flag-yellow">
+                                        <span>Скоро в продаже</span>
+                                    </div>
+                                    <img src="img/card-3.png" alt="">
+                                    <div class="card__head-hints">
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-1.svg" alt="">
+                                        </div>
+                                        <div class="card-hint__item"
+                                            data-tooltip="Применяется с чугунной решеткой и позволяет выдерживать еще большую нагрузку">
+                                            <img src="img/svg/hint-2.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-horizontal__box">
+                                    <div class="product-card__name">
+                                        <h5>Воронка обогреваемая с корпусом из ПВХ и листво</h5>
+                                        <p class="articule">Артикул: 01.171</p>
+                                    </div>
+                                    <div class="product-card__bottom">
+                                        <div class="product-card__price">
+                                            <span class="card__price">2 700 ₽</span>
+                                            <a href="#" class="button">Подробнее</a>
+                                        </div>
+                                        <div class="product-card__params">
+                                            <div class="card__params-head">Характеристики</div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Монтажный диаметр</span>
+                                                <span class="card__params-value">110</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Высота выпуска</span>
+                                                <span class="card__params-value">450</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Монтажный диаметр</span>
+                                                <span class="card__params-value">110</span>
+                                            </div>
+                                            <div class="card__params-item">
+                                                <span class="card__params-name">Высота выпуска</span>
+                                                <span class="card__params-value">450</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button button-transparent button-more">
+                                Показать еще
+                                <span class="more-arrow"><img src="img/svg/more-arrow.svg" alt=""></span>
+                            </button>
+                            <div class="pagination">
+                                <a href="#" class="pagination-link">
+                                    <img src="img/svg/pagination-left.svg" alt="">
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    1
+                                </a>
+                                <a href="#" class="pagination-link current">
+                                    2
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    3
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    4
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    5
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    6
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    7
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    ...
+                                </a>
+                                <a href="#" class="pagination-link">
+                                    <img src="img/svg/pagination-right.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seo-block">
+                <div class="container">
+                    <p class="seo-block__descr">Кровельные воронки предназначены для отвода дождевой и талой воды с
+                        плоских
+                        кровель во внутренний водосток ливневой канализации.</p>
+                    <p class="seo-block__descr">В зависимости от области применения (типа кровель) воронки FACHMANN
+                        имеют
+                        различную конструкцию и применяются как для эксплуатируемой кровли, так и для неэксплуатируемой
+                        кровли.
+                    </p>
+                    <p class="seo-block__descr">Устанавливаются на инверсионные кровли, которые могут включать в себя
+                        гидроизоляцию, пароизоляцию, теплоизоляцию, быть «пирогами» любой толщины и наполнения.</p>
+                </div>
+            </div>
+            <div class="documents">
+                <div class="container">
+                    <div class="heading documents-heading">
+                        Список нормативных документов
+                    </div>
+                    <div class="documents__inner">
+                        <ul class="documents-col">
+                            <li class="documents__item">
+                                <a href="#">СНиП II-26-76 «Кровли»</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 30.13330.2020 Внутренний водопровод и
+                                    канализация
+                                    зданий</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 32.13330.2018 Канализация. Наружные сети и
+                                    сооружения</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 73.13330.2016 «СНиП 3.05.01-85 Внутренние
+                                    санитарно-технические системы зданий»</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">ГОСТ Р 58956-2020 Воронки кровельные для
+                                    внутренних
+                                    водостоков. Общие технические условия</a>
+                            </li>
+                        </ul>
+                        <ul class="documents-col">
+                            <li class="documents__item">
+                                <a href="#">СНиП II-26-76 «Кровли»</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 30.13330.2020 Внутренний водопровод и
+                                    канализация
+                                    зданий</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 32.13330.2018 Канализация. Наружные сети и
+                                    сооружения</a>
+                            </li>
+                            <li class="documents__item">
+                                <a href="#">СП 73.13330.2016 «СНиП 3.05.01-85 Внутренние
+                                    санитарно-технические системы зданий»</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<footer class="footer">
+    <div class="footer__inner container">
+        <a href="index.html" class="footer__logo">
+            <img src="img/svg/footer-logo.svg" alt="">
+        </a>
+        <div class="footer__middle">
+            <nav class="footer__nav">
+                <a href="#">Каталог</a>
+                <a href="#">О компании</a>
+                <a href="#">Контакты</a>
+                <a href="#">Проектировщикам</a>
+                <a href="#">Дилерам</a>
+                <a href="#">Полезное</a>
+            </nav>
+            <div class="footer__item">
+                <div class="footer__subscribe">
+                    <div class="footer__subscribe-head">БУДЬ В КУРСЕ ПОСЛЕДНИХ НОВОСТЕЙ</div>
+                    <form action="#">
+                        <input type="text" class="footer__input">
+                        <button class="button">Подписаться</button>
+                    </form>
+                </div>
+                <div class="footer__social">
+                    <div class="footer__social-text">
+                        Мы в соц. сетях:
+                    </div>
+                    <div class="footer__social-links">
+                        <a href="#">
+                            <svg width="25" height="18" viewBox="0 0 25 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.6704 0.450195H4.33039C3.22179 0.450195 2.15859 0.890587 1.37468 1.67449C0.590782 2.45839 0.150391 3.52159 0.150391 4.6302V13.3702C0.150391 14.4788 0.590782 15.542 1.37468 16.3259C2.15859 17.1098 3.22179 17.5502 4.33039 17.5502H20.6704C21.779 17.5502 22.8422 17.1098 23.6261 16.3259C24.41 15.542 24.8504 14.4788 24.8504 13.3702V4.6302C24.8504 3.52159 24.41 2.45839 23.6261 1.67449C22.8422 0.890587 21.779 0.450195 20.6704 0.450195ZM17.3378 9.16739L9.92779 12.9674C9.89894 12.9823 9.86674 12.9896 9.83427 12.9886C9.80179 12.9875 9.77013 12.9782 9.7423 12.9614C9.71448 12.9446 9.69141 12.921 9.67532 12.8928C9.65923 12.8646 9.65065 12.8327 9.65039 12.8002V5.2002C9.65065 5.16771 9.65923 5.13582 9.67532 5.1076C9.69141 5.07937 9.71448 5.05574 9.7423 5.03897C9.77013 5.0222 9.80179 5.01284 9.83427 5.0118C9.86674 5.01075 9.89894 5.01805 9.92779 5.033L17.3378 8.833C17.3689 8.84894 17.395 8.87316 17.4133 8.903C17.4315 8.93284 17.4412 8.96713 17.4412 9.0021C17.4412 9.03706 17.4315 9.07135 17.4133 9.10119C17.395 9.13103 17.3689 9.15525 17.3378 9.1712V9.16739Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg width="18" height="17" viewBox="0 0 18 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_401_75)">
+                                    <path
+                                        d="M12.7188 0H5.28125C2.625 0 0.5 2.125 0.5 4.78125V7.96875V12.2188C0.5 14.875 2.625 17 5.28125 17H12.7188C15.375 17 17.5 14.875 17.5 12.2188V7.96875V4.78125C17.5 2.125 15.375 0 12.7188 0Z"
+                                        fill="white" />
+                                    <path
+                                        d="M9 12.75C11.3472 12.75 13.25 10.8472 13.25 8.5C13.25 6.15279 11.3472 4.25 9 4.25C6.65279 4.25 4.75 6.15279 4.75 8.5C4.75 10.8472 6.65279 12.75 9 12.75Z"
+                                        stroke="#5D5D5D" stroke-width="2" stroke-miterlimit="10" />
+                                    <path
+                                        d="M13.7812 4.25C14.3681 4.25 14.8438 3.7743 14.8438 3.1875C14.8438 2.6007 14.3681 2.125 13.7812 2.125C13.1944 2.125 12.7188 2.6007 12.7188 3.1875C12.7188 3.7743 13.1944 4.25 13.7812 4.25Z"
+                                        fill="#5D5D5D" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_401_75">
+                                        <rect width="17" height="17" fill="white" transform="translate(0.5)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__contacts">
+            <a href="tel:88005110721" class="footer-tel">8 (800) 511-07-21</a>
+            <a href="mailto:ales@fachmann-rus.ru" class="footer-mail">ales@fachmann-rus.ru</a>
+            <a href="#" class="footer-policy">Политика конфиденциальности</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container footer-bottom__inner">
+            <span>&copy; 2021, ООО «Фахманн Руссланд»</span>
+            <span>Создание сайта — <a href="https://www.abcwww.ru/">«АБВ сайт»</a></span>
+        </div>
+    </div>
+</footer>    <div class="tooltip"></div>
+    <script src="js/swiper.js"></script>
+    <script src="js/jQuery.js"></script>
+    <script src="js/jQuery-UI.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
